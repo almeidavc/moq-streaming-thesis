@@ -1,0 +1,1 @@
+{"protocol":"STREAM_PER_GOP","profile":{"name":"SPIKE","profile":[{"speed":1200,"duration":10},{"speed":300,"duration":10},{"speed":800,"duration":10}]},"metrics":{"avgBufferingTime":342.21818180517715,"totalBufferingEvents":33,"totalReceived":14281.512,"framesReceivedByType":{"B":288,"P":215,"I":40},"totalFramesDropped":0}}

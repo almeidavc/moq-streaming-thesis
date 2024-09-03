@@ -1,0 +1,67 @@
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+    width=0.48\textwidth,
+    area style,
+    axis lines=left,
+    ylabel=Bitrate received (Kbit/s),
+    title=Baseline,
+    legend columns=-1,
+    legend to name=named,
+    scaled ticks=false,
+    ymin=0, ymax=800, ytick distance=200,
+    xtick distance=0.5, minor x tick num=1,
+    x filter/.code={\pgfmathparse{#1/60}}, % Convert seconds to minutes
+    xticklabel={ % Split into hours and minutes
+        \pgfmathsetmacro\hours{floor(\tick)}%
+        \pgfmathsetmacro\minutes{(\tick-\hours)*0.6}%
+        % Use some trickery to get leading zeros
+        \pgfmathprintnumber{\hours}:\pgfmathprintnumber[fixed, fixed zerofill, skip 0.=true, dec sep={}]{\minutes}%
+    },
+    ]
+        \addplot+[fill=blue!20, draw=blue!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/total_bitrate.dat} \closedcycle;
+        \addplot+[fill=green!20, draw=green!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/I_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=orange!20, draw=orange!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/P_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=purple!20, draw=purple!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/B_frames_bitrate.dat} \closedcycle;
+        \addplot[ultra thick, red, no marks] coordinates {
+        (0, 9999)
+        (0, 500)
+        (120, 500)
+        (120, 9999)
+        };
+        \legend{Total, I-frames, P-frames, B-frames}
+    \end{axis}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+    \begin{axis}[
+    width=0.48\textwidth,
+    area style,
+    axis lines=left,
+    title=Deprioritizing B-frames,
+    scaled ticks=false,
+    ymin=0, ymax=800, ytick distance=200,
+    xtick={0.5, 1, 1.5, 2, 2.5},
+    x filter/.code={\pgfmathparse{#1/60}}, % Convert seconds to minutes
+    xticklabel={ % Split into hours and minutes
+        \pgfmathsetmacro\hours{floor(\tick)}%
+        \pgfmathsetmacro\minutes{(\tick-\hours)*0.6}%
+        % Use some trickery to get leading zeros
+        \pgfmathprintnumber{\hours}:\pgfmathprintnumber[fixed, fixed zerofill, skip 0.=true, dec sep={}]{\minutes}%
+    },
+    ]
+        \addplot+[fill=blue!20, draw=blue!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/b_frames/total_bitrate.dat} \closedcycle;
+        \addplot+[fill=green!20, draw=green!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/b_frames/I_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=orange!20, draw=orange!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/b_frames/P_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=purple!20, draw=purple!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/b_frames/B_frames_bitrate.dat} \closedcycle;
+        \addplot[ultra thick, red, no marks] coordinates {
+        (0, 9999)
+        (0, 500)
+        (120, 500)
+        (120, 9999)
+        };
+    \end{axis}
+\end{tikzpicture}
+
+\bigskip
+\ref{named}

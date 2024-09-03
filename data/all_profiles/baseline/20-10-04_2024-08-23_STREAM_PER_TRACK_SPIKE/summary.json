@@ -1,0 +1,1 @@
+{"protocol":"STREAM_PER_TRACK","profile":{"name":"SPIKE","profile":[{"speed":1200,"duration":10},{"speed":300,"duration":10},{"speed":800,"duration":10}]},"metrics":{"avgBufferingTime":319.5285714353834,"totalBufferingEvents":21,"totalReceived":15679.608,"framesReceivedByType":{"B":277,"P":310,"I":41},"totalFramesDropped":0}}

@@ -1,0 +1,15 @@
+{
+  "protocol": "STREAM_PER_TRACK",
+  "profile": {
+    "name": "TEST_1",
+    "profile": [{ "speed": 500, "duration": 120 }]
+  },
+  "metrics": {
+    "avgLatency": 15312.521667529343,
+    "avgBufferingTime": 244.90624999503294,
+    "totalBufferingEvents": 144,
+    "totalReceived": 53544.928,
+    "framesReceivedByType": { "B": 1129, "P": 891, "I": 144 },
+    "totalFramesDropped": 0
+  }
+}

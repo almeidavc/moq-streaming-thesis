@@ -1,0 +1,14 @@
+% !TeX root = ../main.tex
+% Add the above to each chapter to make compiling the PDF easier in some editors.
+
+\chapter{Future work}\label{chapter:future_work}
+
+Using \ac{RFI}, we can inva
+
+% Reset streams to avoid wasting bandwidth
+% - In the Deprioritizing B-frames for example, old B-frames are transmitted when the network recovers (even if they have a low priority)
+
+% \subsection{Dropping P-frames}
+% Recall that we resume playback at the beginning of the latest GoP. If we're towards the end of a long GoP but the new one has not yet started, a bit of latency is added. If we were able to skip media within a GoP, we could achieve even lower latencies, because we would be able to skip more media. With 
+
+% Recall that frames from old GoPs are still transmitted, even though they are useless. Even though the group has a lower priority, it is still transmitted if the network bandwidth is high enough and it doesn't have any newer video to transmit. We note that one can prevent wasting bandwidth, we can cancel the stream as soon as we receive the first frame, which we will discuss in \ref{chapter:future_work}.

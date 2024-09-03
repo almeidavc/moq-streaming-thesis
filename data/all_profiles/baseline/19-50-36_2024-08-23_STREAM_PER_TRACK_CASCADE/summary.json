@@ -1,0 +1,21 @@
+{
+  "protocol": "STREAM_PER_TRACK",
+  "profile": {
+    "name": "CASCADE",
+    "profile": [
+      { "speed": 1200, "duration": 30 },
+      { "speed": 800, "duration": 30 },
+      { "speed": 400, "duration": 30 },
+      { "speed": 800, "duration": 30 },
+      { "speed": 1200, "duration": 30 }
+    ]
+  },
+  "metrics": {
+    "avgLatency": 6455.543475841325,
+    "avgBufferingTime": 245.94576269893324,
+    "totalBufferingEvents": 59,
+    "totalReceived": 89981.384,
+    "framesReceivedByType": { "P": 1577, "B": 1782, "I": 239 },
+    "totalFramesDropped": 0
+  }
+}

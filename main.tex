@@ -9,18 +9,17 @@
 % TODO: change citation style in settings
 \input{settings}
 
-% TODO: change thesis information
 \newcommand*{\getUniversity}{Technische Universität München}
 \newcommand*{\getFaculty}{Informatics}
 \newcommand*{\getDegree}{Informatics}
 \newcommand*{\getSchool}{Computation, Information and Technology}
-\newcommand*{\getTitle}{Thesis title}
-\newcommand*{\getTitleGer}{Titel der Abschlussarbeit}
-\newcommand*{\getAuthor}{Author}
-\newcommand*{\getDoctype}{Bachelor's Thesis, Master's Thesis, \ldots}
-\newcommand*{\getSupervisor}{Supervisor}
-\newcommand*{\getAdvisor}{Advisor}
-\newcommand*{\getSubmissionDate}{Submission date}
+\newcommand*{\getTitle}{Low-Latency Live Streaming Using Media over QUIC}
+\newcommand*{\getTitleGer}{Live-Streaming mit niedriger Latenz über Media over QUIC}
+\newcommand*{\getAuthor}{Vicente Almeida}
+\newcommand*{\getDoctype}{Bachelor's Thesis}
+\newcommand*{\getSupervisor}{Prof. Dr.-Ing. Jörg Ott}
+\newcommand*{\getAdvisor}{M.Sc. Mathis Engelbart}
+\newcommand*{\getSubmissionDate}{15.09.2024}
 \newcommand*{\getSubmissionLocation}{Munich}
 
 \begin{document}
@@ -28,14 +27,14 @@
 % Set page numbering to avoid "destination with the same identifier has been already used" warning for cover page.
 % (see https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages).
 \pagenumbering{alph}
-\input{pages/cover}
+% \input{pages/cover}
 
 \frontmatter{}
 
-\input{pages/title}
-\input{pages/disclaimer}
-\input{pages/acknowledgments}
-\input{pages/abstract}
+% \input{pages/title}
+% \input{pages/disclaimer}
+% \input{pages/acknowledgments}
+% \input{pages/abstract}
 \microtypesetup{protrusion=false}
 \tableofcontents{}
 \microtypesetup{protrusion=true}
@@ -43,7 +42,12 @@
 \mainmatter{}
 
 \input{chapters/01_introduction}
-% TODO: add more chapters here
+\input{chapters/02_background}
+\input{chapters/03_implementation}
+\input{chapters/04_evaluation}
+\input{chapters/05_related_work}
+% \input{chapters/06_future_work}
+% \input{chapters/07_conclusion}
 
 \appendix{}
 
@@ -53,7 +57,24 @@
 \begin{acronym}
 	\itemsep-.25\baselineskip
 	\acro{TUM}[TUM]{Technical University of Munich}
-	% TODO: add acronyms
+    \acro{ABR}[ABR]{Adaptive Bitrate}
+	\acro{CMAF}[CMAF]{Common Media Application Format}
+	\acro{DASH}[DASH]{Dynamic Adaptive Streaming over HTTP}
+	\acro{GoP}[GoP]{Group of Pictures}
+	\acrodefplural{GoP}[GoPs]{Groups of Pictures}
+	\acro{HAS}[HAS]{HTTP Adaptive Streaming}
+	\acro{HLS}[HLS]{HTTP Live Streaming}
+	\acro{HOL}[HOL]{Head-of-line}
+	\acro{IETF}[IETF]{Internet Engineering Task Force}
+	\acro{MoQ}[MoQ]{Media over QUIC}
+	\acro{MOQT}[MOQT]{Media over QUIC Transport}
+	\acro{NAL}[NAL]{Network Abstraction Layer}
+	\acro{OTDR}[OTDR]{On-Time-Display Ratio}
+	\acro{QoE}[QoE]{Quality of Experience}
+	\acro{RFI}[RFI]{Reference Frame Invalidation}
+	\acro{RTT}[RTT]{Round-Trip Time}
+	\acro{VCL}[VCL]{Video Coding Layer}
+	\acro{VOD}[VOD]{Video on Demand}
 \end{acronym}
 
 \listoffigures{}

@@ -1,0 +1,22 @@
+{
+  "protocol": "STREAM_PER_B_FRAME",
+  "profile": {
+    "name": "FAST_JITTERS",
+    "profile": [
+      { "speed": 500, "duration": 0.25 },
+      { "speed": 1200, "duration": 5 },
+      { "speed": 500, "duration": 0.1 },
+      { "speed": 1200, "duration": 1 },
+      { "speed": 500, "duration": 0.25 },
+      { "speed": 1200, "duration": 5 }
+    ]
+  },
+  "metrics": {
+    "avgLatency": 388.5258144742789,
+    "avgBufferingTime": 45.343750059604645,
+    "totalBufferingEvents": 16,
+    "totalReceived": 6329.128,
+    "framesReceivedByType": { "B": 165, "P": 96, "I": 18 },
+    "totalFramesDropped": 0
+  }
+}

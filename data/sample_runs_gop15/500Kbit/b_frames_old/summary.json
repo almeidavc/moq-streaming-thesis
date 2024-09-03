@@ -1,0 +1,15 @@
+{
+  "protocol": "STREAM_PER_B_FRAME",
+  "profile": {
+    "name": "TEST_1",
+    "profile": [{ "speed": 500, "duration": 120 }]
+  },
+  "metrics": {
+    "avgLatency": 8008.0561110221015,
+    "avgBufferingTime": 284.16517856504237,
+    "totalBufferingEvents": 336,
+    "totalReceived": 54357.8,
+    "framesReceivedByType": { "P": 1055, "I": 165 },
+    "totalFramesDropped": 0
+  }
+}

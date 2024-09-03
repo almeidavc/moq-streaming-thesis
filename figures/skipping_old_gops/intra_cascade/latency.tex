@@ -1,0 +1,73 @@
+\begin{tikzpicture}
+    \begin{axis}[
+    name=plot1,
+    axis lines=left,
+    ylabel=Latency (ms),
+    legend style={at={(0.05,0.95)}, anchor=north west, draw=none},
+    legend cell align=left,
+    scaled ticks=false,
+    ymin=0, ymax=25000,
+    ytick distance={5000}, extra y ticks={1000}, ytickmin=1000,
+    xtick distance=0.5, minor x tick num=1,
+    x filter/.code={\pgfmathparse{#1/60}}, % Convert seconds to minutes
+    xticklabel={ % Split into hours and minutes
+        \pgfmathsetmacro\hours{floor(\tick)}%
+        \pgfmathsetmacro\minutes{(\tick-\hours)*0.6}%
+        % Use some trickery to get leading zeros
+        \pgfmathprintnumber{\hours}:\pgfmathprintnumber[fixed, fixed zerofill, skip 0.=true, dec sep={}]{\minutes}%
+    },
+    ]
+    
+    \addplot+[only marks] table[meta=latencyMs] {data/sample_runs_gop15/intra_cascade/baseline/latency_per_sec.dat};
+    \addplot+[only marks, color=brown] table[meta=latencyMs] {data/sample_runs_gop15/intra_cascade/gops/latency_per_sec.dat};
+    
+    \legend{Baseline, Skipping old GoPs}
+    
+    \end{axis}
+    % \begin{axis}[
+    %     % axis y line*=right,
+    %     width=12cm,
+    %     height=8cm,
+    %     axis y line=right,
+    %     axis x line=none,
+    %     ylabel=Bandwidth (Kbit/s),
+    %     ymin=0, ymax=1000,
+    %     ]
+        
+    %     \addplot[red, no marks] coordinates {
+    %         (0, 1000)
+    %         (15, 1000)
+    %         (15, 800)
+    %         (30, 800)
+    %         (30, 600)
+    %         (45, 600)
+    %         (45, 400)
+    %         (60, 400)
+    %         (60, 200)
+    %         (75, 200)
+    %         (75, 400)
+    %         (90, 400)
+    %         (90, 600)
+    %         (105, 600)
+    %         (105, 800)
+    %         (120, 800)
+    %         (120, 1000)
+    %         (135, 1000)
+    %     };
+
+    % \end{axis}
+
+    % Add legend outside the graph
+    % \node[below=10pt of plot1.south, anchor=north, inner sep=0] (legend) {
+    %     \begin{tikzpicture}
+    %         \begin{customlegend}[
+    %             legend entries={Baseline,Skipping old GoPs,Bandwidth},
+    %             legend style={draw=none, column sep=5pt}
+    %         ]
+    %             \csname pgfplots@addlegendimage\endcsname{blue}
+    %             \csname pgfplots@addlegendimage\endcsname{brown}
+    %             \csname pgfplots@addlegendimage\endcsname{red}
+    %         \end{customlegend}
+    %     \end{tikzpicture}
+    % };
+\end{tikzpicture}

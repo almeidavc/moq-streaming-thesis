@@ -1,0 +1,1 @@
+{"protocol":"STREAM_PER_TRACK","profile":{"name":"500Kbit","profile":[{"speed":500,"duration":120}]},"metrics":{"avgBufferingTime":240.7581080955428,"totalBufferingEvents":148,"totalReceived":53458.264,"framesReceivedByType":{"P":890,"B":1126,"I":143},"totalFramesDropped":0}}

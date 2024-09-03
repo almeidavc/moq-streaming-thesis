@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+    \begin{axis}[
+    axis lines=left,
+    ylabel=Latency (ms),
+    legend style={at={(0.98,0.02)}, anchor=south east, draw=none},
+    legend cell align=left,
+    scaled ticks=false,
+    ymin=0, ymax=25000,
+    xtick distance=0.5, minor x tick num=1,
+    x filter/.code={\pgfmathparse{#1/60}}, % Convert seconds to minutes
+    xticklabel={ % Split into hours and minutes
+        \pgfmathsetmacro\hours{floor(\tick)}%
+        \pgfmathsetmacro\minutes{(\tick-\hours)*0.6}%
+        % Use some trickery to get leading zeros
+        \pgfmathprintnumber{\hours}:\pgfmathprintnumber[fixed, fixed zerofill, skip 0.=true, dec sep={}]{\minutes}%
+    },
+    ]
+    
+    \addplot+[only marks] table[meta=latencyMs] {data/sample_runs_gop15/500Kbit/baseline/latency_per_sec.dat};
+    \addplot+[only marks] table[meta=latencyMs] {data/sample_runs_gop15/500Kbit/b_frames/latency_per_sec.dat};
+    
+    \legend{Baseline, Deprioritizing B-frames}
+    
+    \end{axis}
+\end{tikzpicture}

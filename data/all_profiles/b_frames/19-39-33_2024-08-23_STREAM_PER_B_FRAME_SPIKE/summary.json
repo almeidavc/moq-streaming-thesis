@@ -1,0 +1,1 @@
+{"protocol":"STREAM_PER_B_FRAME","profile":{"name":"SPIKE","profile":[{"speed":1200,"duration":10},{"speed":300,"duration":10},{"speed":800,"duration":10}]},"metrics":{"avgLatency":3392.138223688357,"avgBufferingTime":341.3333333219801,"totalBufferingEvents":21,"totalReceived":15477.44,"framesReceivedByType":{"P":294,"B":290,"I":42},"totalFramesDropped":0}}

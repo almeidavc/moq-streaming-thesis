@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    ylabel={Average Latency (ms)},
+    scaled y ticks=false,
+    ymin=0,
+    xtick=data,
+    xticklabels={CASCADE, FAST-JITTERS, INTRA-CASCADE, SLOW-JITTERS, SPIKE},
+    x tick label style={font=\small},
+    x tick label style={rotate=45, anchor=east},
+    symbolic x coords={CASCADE, FAST-JITTERS, INTRA-CASCADE, SLOW-JITTERS, SPIKE},
+    legend style={anchor=north, at={(0.5,1.15)}, draw=none, legend columns=-1},
+]
+
+\addplot table {data/avg_latency/baseline.dat};
+\addplot table {data/avg_latency/b_frames.dat};
+\addplot table {data/avg_latency/gops.dat};
+
+\legend{Baseline, Deprioritizing B-frames, Skipping old GoPs}
+
+\end{axis}
+\end{tikzpicture}

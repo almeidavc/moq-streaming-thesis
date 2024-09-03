@@ -1,7 +1,313 @@
-@book{latex,
-  title = {LaTeX : A Documentation Preparation System User's Guide and Reference Manual},
-  publisher = {Addison-Wesley Professional},
-  year = {1994},
-  author = {Leslie Lamport}
+@inproceedings{nguyenTakeRedPill2022,
+  title = {Take the Red Pill for {{H3}} and See How Deep the Rabbit Hole Goes},
+  booktitle = {Proceedings of the 1st {{Mile-High Video Conference}}},
+  author = {Nguyen, Minh and Timmerer, Christian and Pham, Stefan and Silhavy, Daniel and Begen, Ali C.},
+  date = {2022-03-17},
+  series = {{{MHV}} '22},
+  pages = {7--12},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/3510450.3517302},
+  url = {https://dl.acm.org/doi/10.1145/3510450.3517302},
+  urldate = {2024-08-29},
+  abstract = {With the introduction of HTTP/3 (H3) and QUIC at its core, there is an expectation of significant improvements in Web-based secure object delivery. As HTTP is a central protocol to the current adaptive streaming methods in all major streaming services, an important question is what H3 will bring to the table for such services. To answer this question, we present the new features of H3 and QUIC, and compare them to those of H/1.1/2 and TCP. We also share the latest research findings in this domain.},
+  isbn = {978-1-4503-9222-8},
+  file = {/Users/vicente/Zotero/storage/YVDVZHVJ/Nguyen et al. - 2022 - Take the red pill for H3 and see how deep the rabb.pdf}
 }
 
+@online{timmererAdvancedTransportOptions2016,
+  title = {Advanced {{Transport Options}} for the {{Dynamic Adaptive Streaming}} over {{HTTP}}},
+  author = {Timmerer, Christian and Bertoni, Alan},
+  date = {2016-06-01},
+  eprint = {1606.00264},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.1606.00264},
+  url = {http://arxiv.org/abs/1606.00264},
+  urldate = {2024-08-29},
+  abstract = {Multimedia streaming over HTTP is no longer a niche research topic as it has entered our daily live. The common assumption is that it is deployed on top of the existing infrastructure utilizing application (HTTP) and transport (TCP) layer protocols as is. Interestingly, standards like MPEG's Dynamic Adaptive Streaming over HTTP (DASH) do not mandate the usage of any specific transport protocol allowing for sufficient deployment flexibility which is further supported by emerging developments within both protocol layers. This paper investigates and evaluates the usage of advanced transport options for the dynamic adaptive streaming over HTTP. We utilize a common test setup to evaluate HTTP/2.0 and Google's Quick UDP Internet Connections (QUIC) protocol in the context of DASH-based services.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Multimedia,Computer Science - Networking and Internet Architecture},
+  file = {/Users/vicente/Zotero/storage/A39VJEVU/Timmerer and Bertoni - 2016 - Advanced Transport Options for the Dynamic Adaptiv.pdf;/Users/vicente/Zotero/storage/RU6M4AIF/1606.html}
+}
+
+@report{curleyMediaQUICTransport2024,
+  type = {Internet Draft},
+  title = {Media over {{QUIC Transport}}},
+  author = {Curley, Luke and Pugin, Kirill and Nandakumar, Suhas and Vasiliev, Victor and Swett, Ian},
+  date = {2024-07-08},
+  number = {draft-ietf-moq-transport-05},
+  institution = {Internet Engineering Task Force},
+  url = {https://datatracker.ietf.org/doc/draft-ietf-moq-transport},
+  urldate = {2024-08-29},
+  abstract = {This document defines the core behavior for Media over QUIC Transport (MOQT), a media transport protocol designed to operate over QUIC and WebTransport, which have similar functionality. MOQT allows a producer of media to publish data and have it consumed via subscription by a multiplicity of endpoints. It supports intermediate content distribution networks and is designed for high scale and low latency distribution.},
+  pagetotal = {42}
+}
+
+@online{MediaQUICMoq,
+  title = {Media {{Over QUIC}} (Moq)},
+  url = {https://datatracker.ietf.org/wg/moq/about/},
+  urldate = {2024-08-29},
+  file = {/Users/vicente/Zotero/storage/IX8YBT5W/about.html}
+}
+
+@inproceedings{arisuQuicklyStartingMedia2018,
+  title = {Quickly {{Starting Media Streams Using QUIC}}},
+  author = {Arısu, Şevket and Begen, Ali},
+  date = {2018-06-12},
+  pages = {1--6},
+  doi = {10.1145/3210424.3210426},
+  abstract = {Originally proposed by Google, QUIC is a low-latency transport protocol currently being developed and specified in the IETF. QUIC's low-latency, improved congestion control, multiplexing features are promising and may help improve viewer experience in HTTP adaptive streaming applications. To investigate what issues due to running HTTP over TCP can be alleviated by using HTTP over QUIC, we measured QUIC's streaming performance on wireless and cellular networks. Specifically, we examined QUIC's performance during network interface changes due to viewer's mobility and under unstable network conditions. Results show that QUIC starts media streams more quickly, providing a better streaming and seeking experience, in particular, when there is more congestion in the network, and outperforms TCP when the viewer is mobile and switches between the networks.},
+  file = {/Users/vicente/Zotero/storage/7JGYKQ3G/Arısu and Begen - 2018 - Quickly Starting Media Streams Using QUIC.pdf}
+}
+
+@article{shreedharEvaluatingQUICPerformance2022,
+  title = {Evaluating {{QUIC Performance Over Web}}, {{Cloud Storage}}, and {{Video Workloads}}},
+  author = {Shreedhar, Tanya and Panda, Rohit and Podanev, Sergey and Bajpai, Vaibhav},
+  date = {2022-06},
+  journaltitle = {IEEE Transactions on Network and Service Management},
+  volume = {19},
+  number = {2},
+  pages = {1366--1381},
+  issn = {1932-4537},
+  doi = {10.1109/TNSM.2021.3134562},
+  url = {https://ieeexplore.ieee.org/document/9646248},
+  urldate = {2024-08-29},
+  abstract = {QUIC was launched in 2013 with a goal to provide reliable, connection-oriented and end-to-end encrypted transport and is recently standardized in May 2021 by the Internet Engineering Task Force (IETF). This work evaluates QUIC performance over the web, cloud storage, and video workloads and compares them to traditional TLS/TCP. To this end, we have designed tests (quic\_perf, tls\_perf and video) and conducted measurements from 2018 – 2021 using multiple vantage points: an educational network, a high-bandwidth low-RTT residential link in Germany and a low-bandwidth high-RTT residential link in India. We target Alexa Top-1M for web workloads and probe them towards the support for QUIC, TLS 1.2 and TLS 1.3. By measuring łt 5.7 K websites that support QUIC, we observe that QUIC has up to \textbackslash approx 140 \% lower mean connection times than TLS 1.2/1.3 over TCP for low-bandwidth and high-RTT networks. When comparing different versions of QUIC, we observe that IETF QUIC connection times are slightly better than different versions (Q050, Q046, Q044, Q043, Q039 and Q035) of gQUIC. For cloud storage workloads, we observe that TLS 1.2 over TCP exhibits higher throughput for larger file sizes ({$>$}20 MB up to 2 GB), while QUIC exhibits higher throughput for smaller file sizes ( łeq 20 MB) while downloading files from Google Drive. At the same time, QUIC has much higher CPU utilization than TLS 1.2 over TCP, almost double while downloading a large file (200 MB) from Google Drive due to in-kernel optimizations that benefit TCP. For video workloads, we observe that QUIC is 534 ms faster than TLS 1.2 over TCP from India (406 ms from Germany) in establishing a connection to YouTube media servers. Although we witness that (similar to cloud storage workloads) the overall download rate is higher over TLS, QUIC still tends to depict better video content delivery with reduced stall events and up to 50\% lower stall durations due to its lower latency overheads. To support reproducibility, the developed tests and the collected data are made publicly available to the community.},
+  eventtitle = {{{IEEE Transactions}} on {{Network}} and {{Service Management}}},
+  keywords = {application workloads,Cloud computing,Content delivery networks (CDN),Internet,internet engineering task force (IETF),Middleboxes,Protocols,QUIC,Servers,Streaming media,Throughput,transmission control protocol (TCP),transport layer security (TLS)},
+  file = {/Users/vicente/Zotero/storage/JWTLQ96X/9646248.html}
+}
+
+@online{14:00-17:00ISOIEC230091,
+  title = {{{ISO}}/{{IEC}} 23009-1:2022},
+  shorttitle = {{{ISO}}/{{IEC}} 23009-1},
+  author = {{14:00-17:00}},
+  url = {https://www.iso.org/standard/83314.html},
+  urldate = {2024-08-31},
+  abstract = {Information technology — Dynamic adaptive streaming over HTTP (DASH) — Part 1: Media presentation description and segment formats},
+  langid = {english},
+  organization = {ISO},
+  file = {/Users/vicente/Zotero/storage/UBLK6E6Z/83314.html}
+}
+
+@online{incHTTPLiveStreaming,
+  title = {{{HTTP Live Streaming}} ({{HLS}})},
+  author = {Inc, Apple},
+  url = {https://developer.apple.com/streaming/},
+  urldate = {2024-08-31},
+  abstract = {Find presentations, documentation, sample code, and development resources for using HTTP Live Streaming (HLS).},
+  langid = {english},
+  organization = {Apple Developer},
+  file = {/Users/vicente/Zotero/storage/2MW8N5WJ/streaming.html}
+}
+
+@online{14:00-17:00ISOIEC2300019,
+  title = {{{ISO}}/{{IEC}} 23000-19:2024},
+  shorttitle = {{{ISO}}/{{IEC}} 23000-19},
+  author = {{14:00-17:00}},
+  url = {https://www.iso.org/standard/85623.html},
+  urldate = {2024-08-31},
+  abstract = {Information technology — Multimedia application format (MPEG-A) — Part 19: Common media application format (CMAF) for segmented media},
+  langid = {english},
+  organization = {ISO},
+  file = {/Users/vicente/Zotero/storage/9YAX72RG/85623.html}
+}
+
+@inproceedings{durakEvaluatingPerformanceApple2020,
+  title = {Evaluating the {{Performance}} of {{Apple}}’s {{Low-Latency HLS}}},
+  booktitle = {2020 {{IEEE}} 22nd {{International Workshop}} on {{Multimedia Signal Processing}} ({{MMSP}})},
+  author = {Durak, Kerem and Akcay, Mehmet N. and Erinc, Yigit K. and Pekel, Boran and Begen, Ali C.},
+  date = {2020-09},
+  pages = {1--6},
+  issn = {2473-3628},
+  doi = {10.1109/MMSP48831.2020.9287117},
+  url = {https://ieeexplore.ieee.org/document/9287117},
+  urldate = {2024-08-31},
+  abstract = {In its annual developers conference in June 2019, Apple has announced a backwards-compatible extension to its popular HTTP Live Streaming (HLS) protocol to enable low-latency live streaming. This extension offers new features such as the ability to generate partial segments, use playlist delta updates, block playlist reload and provide rendition reports. Compared to the traditional HLS, these features require new capabilities on the origin servers and the caches inside a content delivery network. While HLS has been known to perform great at scale, its low-latency extension is likely to consume considerable server and network resources, and this may raise concerns about its scalability. In this paper, we make the first attempt to understand how this new extension works and performs. We also provide a 1:1 comparison against the low-latency DASH approach, which is the competing low-latency solution developed as an open standard.},
+  eventtitle = {2020 {{IEEE}} 22nd {{International Workshop}} on {{Multimedia Signal Processing}} ({{MMSP}})},
+  keywords = {Conferences,Content distribution networks,Protocols,Scalability,Servers,Signal processing,Standards},
+  file = {/Users/vicente/Zotero/storage/85KN2B8X/9287117.html}
+}
+
+@online{bentalebOneSecondLatencyEvolution2023,
+  title = {Toward {{One-Second Latency}}: {{Evolution}} of {{Live Media Streaming}}},
+  shorttitle = {Toward {{One-Second Latency}}},
+  author = {Bentaleb, Abdelhak and Lim, May and Akcay, Mehmet N. and Begen, Ali C. and Hammoudi, Sarra and Zimmermann, Roger},
+  date = {2023-10-04},
+  eprint = {2310.03256},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2310.03256},
+  url = {http://arxiv.org/abs/2310.03256},
+  urldate = {2024-08-31},
+  abstract = {This survey presents the evolution of live media streaming and the technological developments behind today's IP-based low-latency live streaming systems. Live streaming primarily involves capturing, encoding, packaging and delivering real-time events such as live sports, live news, personal broadcasts and surveillance videos. Live streaming also involves concurrent streaming of linear TV programming off the satellite, cable, over-the-air or IPTV broadcast, where the programming is not necessarily a real-time event. The survey starts with a discussion on the latency and latency continuum in streaming applications. Then, it lays out the existing live streaming workflows and protocols, followed by an in-depth analysis of the latency sources in these workflows and protocols. The survey continues with the technology enablers, low-latency extensions for the popular HTTP adaptive streaming methods and enhancements for robust low-latency playback. An entire section is dedicated to the detailed summary and findings of Twitch's grand challenge on low-latency live streaming. The survey concludes with a discussion of ongoing research problems in this space.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Multimedia,Computer Science - Networking and Internet Architecture},
+  file = {/Users/vicente/Zotero/storage/T7ZFYKK5/Bentaleb et al. - 2023 - Toward One-Second Latency Evolution of Live Media.pdf;/Users/vicente/Zotero/storage/PF3P6U33/2310.html}
+}
+
+@article{CiscoVisualNetworking2018,
+  title = {Cisco {{Visual Networking Index}}: {{Forecast}} and {{Trends}}, 2017–2022},
+  date = {2018},
+  langid = {english},
+  file = {/Users/vicente/Zotero/storage/F7GXCWPM/2018 - Cisco Visual Networking Index Forecast and Trends.pdf}
+}
+
+@report{puginRUSHReliableUnreliable2021,
+  type = {Internet Draft},
+  title = {{{RUSH}} - {{Reliable}} (Unreliable) Streaming Protocol},
+  author = {Pugin, Kirill and Frindell, Alan and Cenzano, Jordi and Weissman, Jake},
+  date = {2021-07-12},
+  number = {draft-kpugin-rush-00},
+  institution = {Internet Engineering Task Force},
+  url = {https://datatracker.ietf.org/doc/draft-kpugin-rush-00},
+  urldate = {2024-09-01},
+  abstract = {RUSH is an application-level protocol for ingesting live video. This document describes core of the protocol and how it maps onto QUIC Discussion Venues This note is to be removed before publishing as an RFC. Discussion of this document takes place on the mailing list (), which is archived at . Source for this draft and an issue tracker can be found at https://github.com/afrind/draft-rush.},
+  pagetotal = {16}
+}
+
+@report{curleyWarpSegmentedLive2022,
+  type = {Internet Draft},
+  title = {Warp - {{Segmented Live Video Transport}}},
+  author = {Curley, Luke},
+  date = {2022-02-10},
+  number = {draft-lcurley-warp-00},
+  institution = {Internet Engineering Task Force},
+  url = {https://datatracker.ietf.org/doc/draft-lcurley-warp-00},
+  urldate = {2024-09-01},
+  abstract = {This document defines the core behavior for Warp, a segmented live video transport protocol. Warp maps live media to QUIC streams based on the underlying media encoding. Media is prioritized to minimize latency during congestion.},
+  pagetotal = {9}
+}
+
+@inproceedings{gurelMediaQUICInitial2023,
+  title = {Media over {{QUIC}}: {{Initial Testing}}, {{Findings}} and {{Results}}},
+  shorttitle = {Media over {{QUIC}}},
+  booktitle = {Proceedings of the 14th {{ACM Multimedia Systems Conference}}},
+  author = {Gurel, Zafer and Erkilic Civelek, Tugce and Bodur, Atakan and Bilgin, Senem and Yeniceri, Deniz and Begen, Ali C.},
+  date = {2023-06-08},
+  series = {{{MMSys}} '23},
+  pages = {301--306},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/3587819.3593937},
+  url = {https://dl.acm.org/doi/10.1145/3587819.3593937},
+  urldate = {2024-09-01},
+  abstract = {With its advantages over TCP, QUIC created a new field for developing media-aware low-latency delivery solutions. The problem space is being examined by the new Media over QUIC (moq) working group in the IETF. In this paper, we study one of the initial proposals in detail, do a gap analysis and create an open-source testbed by introducing new essential features.},
+  isbn = {9798400701481},
+  file = {/Users/vicente/Zotero/storage/V6NTLKD3/Gurel et al. - 2023 - Media over QUIC Initial Testing, Findings and Res.pdf}
+}
+
+@online{gurelIBC2023TechPapers,
+  title = {{{IBC2023 Tech Papers}}: {{A Fresh Look}} at {{Live Sports Streaming}} with {{Prioritized Media-Over-QUIC Transport}}},
+  shorttitle = {{{IBC2023 Tech Papers}}},
+  author = {Gurel, Zafer and Civelek, Tugce Erkilic and Begen, Ali C. and September 2023, Alex Giladi 17},
+  url = {https://www.ibc.org/technical-papers/ibc2023-tech-papers-a-fresh-look-at-live-sports-streaming-with-prioritized-media-over-quic-transport/10264.article},
+  urldate = {2024-09-01},
+  abstract = {IBC2023: This Technical Paper explains the MOQT design considerations, summarizes the enhancements implemented in a previous study and the investigation of the prioritization schemes that can be performed over this first implementation and showing results for the on-time-display ratio under different bandwidth constraints.},
+  langid = {english},
+  organization = {IBC},
+  file = {/Users/vicente/Zotero/storage/G9ZHPQUX/10264.html}
+}
+
+@inproceedings{gurelThisWayPrioritization2024,
+  title = {This Is {{The Way}}: {{Prioritization}} in {{Media-over-QUIC Transport}}},
+  shorttitle = {This Is {{The Way}}},
+  booktitle = {Proceedings of the 3rd {{Mile-High Video Conference}} on Zzz},
+  author = {Gurel, Zafer and Civelek, Tugce Erkilic and Begen, Ali C.},
+  date = {2024-02-11},
+  pages = {113--114},
+  publisher = {ACM},
+  location = {Denver CO USA},
+  doi = {10.1145/3638036.3640280},
+  url = {https://dl.acm.org/doi/10.1145/3638036.3640280},
+  urldate = {2024-09-01},
+  eventtitle = {{{MHV}} '24: {{Mile-High Video Conference}}},
+  isbn = {9798400704932},
+  langid = {english},
+  file = {/Users/vicente/Zotero/storage/5GLKGXKL/Gurel et al. - 2024 - This is The Way Prioritization in Media-over-QUIC.pdf}
+}
+
+@inproceedings{gurelMediaoverQUICTransportVs2024,
+  title = {Media-over-{{QUIC Transport}} vs. {{Low-Latency DASH}}: A {{Deathmatch Testbed}}},
+  shorttitle = {Media-over-{{QUIC Transport}} vs. {{Low-Latency DASH}}},
+  booktitle = {Proceedings of the 15th {{ACM Multimedia Systems Conference}}},
+  author = {Gurel, Zafer and Civelek, Tugce Erkilic and Ugur, Deniz and Erinc, Yigit K. and Begen, Ali C.},
+  date = {2024-04-17},
+  series = {{{MMSys}} '24},
+  pages = {448--452},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/3625468.3652191},
+  url = {https://dl.acm.org/doi/10.1145/3625468.3652191},
+  urldate = {2024-09-01},
+  abstract = {Low-Latency Dynamic Adaptive Streaming over HTTP (LL-DASH) leverages Common Media Application Format's (CMAF) chunked packaging and HTTP's chunked transfer encoding capabilities to cater to the demand for media delivery with latencies of those achieved by the traditional broadcast. Nevertheless, to achieve lower latencies in a scalable and reliable way, the Internet Engineering Task Force (IETF) recently started developing a QUIC-based solution, termed Media-over-QUIC Transport (MOQT). This paper presents the first testbed to compare LL-DASH and MOQT, comparing their performance and usability under different network conditions.},
+  isbn = {9798400704123},
+  file = {/Users/vicente/Zotero/storage/J5V8F9FY/Gurel et al. - 2024 - Media-over-QUIC Transport vs. Low-Latency DASH a .pdf}
+}
+
+@software{kixelatedKixelatedMoqrs2024,
+  title = {Kixelated/Moq-Rs},
+  author = {{kixelated}},
+  date = {2024-08-29T16:47:33Z},
+  origdate = {2022-06-29T16:16:37Z},
+  url = {https://github.com/kixelated/moq-rs},
+  urldate = {2024-09-01},
+  abstract = {Rust library for Media over QUIC}
+}
+
+@software{kixelatedKixelatedMoqjs2024,
+  title = {Kixelated/Moq-Js},
+  author = {{kixelated}},
+  date = {2024-08-22T08:03:17Z},
+  origdate = {2023-05-24T20:37:37Z},
+  url = {https://github.com/kixelated/moq-js},
+  urldate = {2024-09-01},
+  abstract = {Typescript library for Media over QUIC}
+}
+
+@software{FacebookexperimentalMoqencoderplayer2024,
+  title = {Facebookexperimental/Moq-Encoder-Player},
+  date = {2024-08-28T18:27:12Z},
+  origdate = {2023-12-07T22:23:58Z},
+  url = {https://github.com/facebookexperimental/moq-encoder-player},
+  urldate = {2024-09-01},
+  abstract = {This project is provides a minimal implementation (inside the browser) of a live video and audio encoder and video / audio player creating and consuming IETF MOQ stream. The goal is to provide a minimal live platform components that helps testing IETF MOQ interop},
+  organization = {Meta Experimental}
+}
+
+@article{wiegandOverview264AVC2003,
+  title = {Overview of the {{H}}.264/{{AVC}} Video Coding Standard},
+  author = {Wiegand, T. and Sullivan, G.J. and Bjontegaard, G. and Luthra, A.},
+  date = {2003-07},
+  journaltitle = {IEEE Transactions on Circuits and Systems for Video Technology},
+  volume = {13},
+  number = {7},
+  pages = {560--576},
+  issn = {1558-2205},
+  doi = {10.1109/TCSVT.2003.815165},
+  url = {https://ieeexplore.ieee.org/document/1218189},
+  urldate = {2024-09-01},
+  abstract = {H.264/AVC is newest video coding standard of the ITU-T Video Coding Experts Group and the ISO/IEC Moving Picture Experts Group. The main goals of the H.264/AVC standardization effort have been enhanced compression performance and provision of a "network-friendly" video representation addressing "conversational" (video telephony) and "nonconversational" (storage, broadcast, or streaming) applications. H.264/AVC has achieved a significant improvement in rate-distortion efficiency relative to existing standards. This article provides an overview of the technical features of H.264/AVC, describes profiles and applications for the standard, and outlines the history of the standardization process.},
+  eventtitle = {{{IEEE Transactions}} on {{Circuits}} and {{Systems}} for {{Video Technology}}},
+  keywords = {Automatic voltage control,Broadcasting,IEC standards,ISO standards,MPEG standards,Multimedia communication,Standardization,Telephony,Video coding,Video compression},
+  file = {/Users/vicente/Zotero/storage/NBP7RFXQ/Wiegand et al. - 2003 - Overview of the H.264AVC video coding standard.pdf}
+}
+
+@article{sullivanOverviewHighEfficiency2012,
+  title = {Overview of the {{High Efficiency Video Coding}} ({{HEVC}}) {{Standard}}},
+  author = {Sullivan, Gary J. and Ohm, Jens-Rainer and Han, Woo-Jin and Wiegand, Thomas},
+  date = {2012-12},
+  journaltitle = {IEEE Transactions on Circuits and Systems for Video Technology},
+  volume = {22},
+  number = {12},
+  pages = {1649--1668},
+  issn = {1558-2205},
+  doi = {10.1109/TCSVT.2012.2221191},
+  url = {https://ieeexplore.ieee.org/document/6316136},
+  urldate = {2024-09-01},
+  abstract = {High Efficiency Video Coding (HEVC) is currently being prepared as the newest video coding standard of the ITU-T Video Coding Experts Group and the ISO/IEC Moving Picture Experts Group. The main goal of the HEVC standardization effort is to enable significantly improved compression performance relative to existing standards-in the range of 50\% bit-rate reduction for equal perceptual video quality. This paper provides an overview of the technical features and characteristics of the HEVC standard.},
+  eventtitle = {{{IEEE Transactions}} on {{Circuits}} and {{Systems}} for {{Video Technology}}},
+  keywords = {Advanced video coding (AVC),H.264,High Efficiency Video Coding (HEVC),ISO standards,Joint Collaborative Team on Video Coding (JCT-VC),Moving Picture Experts Group (MPEG),MPEG 4 Standard,MPEG standards,MPEG-4,standards,Video coding,Video Coding Experts Group (VCEG),video compression,Video compression},
+  file = {/Users/vicente/Zotero/storage/LB3GF7D9/Sullivan et al. - 2012 - Overview of the High Efficiency Video Coding (HEVC.pdf;/Users/vicente/Zotero/storage/H7YI75RN/6316136.html}
+}
