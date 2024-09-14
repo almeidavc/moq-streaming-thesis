@@ -311,3 +311,44 @@
   keywords = {Advanced video coding (AVC),H.264,High Efficiency Video Coding (HEVC),ISO standards,Joint Collaborative Team on Video Coding (JCT-VC),Moving Picture Experts Group (MPEG),MPEG 4 Standard,MPEG standards,MPEG-4,standards,Video coding,Video Coding Experts Group (VCEG),video compression,Video compression},
   file = {/Users/vicente/Zotero/storage/LB3GF7D9/Sullivan et al. - 2012 - Overview of the High Efficiency Video Coding (HEVC.pdf;/Users/vicente/Zotero/storage/H7YI75RN/6316136.html}
 }
+
+@online{ACMMMSys20,
+  title = {{{ACM MMSys}}'20, {{Istanbul}}, {{Turkey}}},
+  url = {https://2020.acmmmsys.org/lll_challenge.php},
+  urldate = {2024-09-12},
+  file = {/Users/vicente/Zotero/storage/K4NVNUTH/lll_challenge.html}
+}
+
+@article{rizzoDummynetSimpleApproach1997,
+  title = {Dummynet: A Simple Approach to the Evaluation of Network Protocols},
+  shorttitle = {Dummynet},
+  author = {Rizzo, Luigi},
+  date = {1997-01-01},
+  journaltitle = {SIGCOMM Comput. Commun. Rev.},
+  volume = {27},
+  number = {1},
+  pages = {31--41},
+  issn = {0146-4833},
+  doi = {10.1145/251007.251012},
+  url = {https://dl.acm.org/doi/10.1145/251007.251012},
+  urldate = {2024-09-12},
+  abstract = {Network protocols are usually tested in operational networks or in simulated environments. With the former approach it is not easy to set and control the various operational parameters such as bandwidth, delays, queue sizes. Simulators are easier to control, but they are often only an approximate model of the desired setting, especially for what regards the various traffic generators (both producers and consumers) and their interaction with the protocol itself.In this paper we show how a simple, yet flexible and accurate network simulator - dummynet - can be built with minimal modifications to an existing protocol stack, allowing experiments to be run on a standalone system. dummynet works by intercepting communications of the protocol layer under test and simulating the effects of finite queues, bandwidth limitations and communication delays. It runs in a fully operational system, hence allowing the use of real traffic generators and protocol implementations, while solving the problem of simulating unusual environments. With our tool, doing experiments with network protocols is as simple as running the desired set of applications on a workstation.A FreeBSD implementation of dummynet, targeted to TCP, is available from the author. This implementation is highly portable and compatible with other BSD-derived systems, and takes less than 300 lines of kernel code.},
+  file = {/Users/vicente/Zotero/storage/HZGHRHER/Rizzo - 1997 - Dummynet a simple approach to the evaluation of n.pdf}
+}
+
+@inproceedings{yinControlTheoreticApproachDynamic2015,
+  title = {A {{Control-Theoretic Approach}} for {{Dynamic Adaptive Video Streaming}} over {{HTTP}}},
+  booktitle = {Proceedings of the 2015 {{ACM Conference}} on {{Special Interest Group}} on {{Data Communication}}},
+  author = {Yin, Xiaoqi and Jindal, Abhishek and Sekar, Vyas and Sinopoli, Bruno},
+  date = {2015-08-17},
+  series = {{{SIGCOMM}} '15},
+  pages = {325--338},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/2785956.2787486},
+  url = {https://dl.acm.org/doi/10.1145/2785956.2787486},
+  urldate = {2024-09-13},
+  abstract = {User-perceived quality-of-experience (QoE) is critical in Internet video applications as it impacts revenues for content providers and delivery systems. Given that there is little support in the network for optimizing such measures, bottlenecks could occur anywhere in the delivery system. Consequently, a robust bitrate adaptation algorithm in client-side players is critical to ensure good user experience. Previous studies have shown key limitations of state-of-art commercial solutions and proposed a range of heuristic fixes. Despite the emergence of several proposals, there is still a distinct lack of consensus on: (1) How best to design this client-side bitrate adaptation logic (e.g., use rate estimates vs. buffer occupancy); (2) How well specific classes of approaches will perform under diverse operating regimes (e.g., high throughput variability); or (3) How do they actually balance different QoE objectives (e.g., startup delay vs. rebuffering). To this end, this paper makes three key technical contributions. First, to bring some rigor to this space, we develop a principled control-theoretic model to reason about a broad spectrum of strategies. Second, we propose a novel model predictive control algorithm that can optimally combine throughput and buffer occupancy information to outperform traditional approaches. Third, we present a practical implementation in a reference video player to validate our approach using realistic trace-driven emulations.},
+  isbn = {978-1-4503-3542-3},
+  file = {/Users/vicente/Zotero/storage/MDJE6FVC/Yin et al. - 2015 - A Control-Theoretic Approach for Dynamic Adaptive .pdf}
+}

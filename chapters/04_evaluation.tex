@@ -4,26 +4,34 @@
 \chapter{Evaluation}\label{chapter:evaluation}
 
 \section{Testbed}
-We now describe the testbed that we've used for our experiments. The client and server run on the same machine and communicate through a congested link, simulated using PF and dummynet.
+We now describe the testbed that we've used to evaluate and compare our streaming protocols. We perform multiple test runs for each streaming protocol, in which we first launch the client, establish a connection to the server and subscribe to the video stream. Once playback starts, we simulate various types of network patterns that are representative of real-world network conditions and collect relevant metrics. The network profiles used, which are taken from the Twitch's 2020 Grand Challenge on low-latency live streaming \parencite{ACMMMSys20}, are shown in \autoref{fig:bandwidth_profiles}.
 
-% TODO: maybe cite where you got this idea from (dash player or twitch challenge testbed)
-% TODO: mention delivery latency
-We measure the latency of each frame, as the delay between the frame reaching the server and being rendered in the client. For this purpose, the server includes the availability time, the time at which the frame became available in the server, in the header of the MoQ object's payload. In the client, we calculate the latency for a given frame by taking the difference of the availability time and the time at which the frame was rendered. Note that clock drift is not an issue, as both the server and client run on the same machine and use the same clock.
+\input{figures/bandwidth_profiles/bandwidth_profiles}
 
-% TODO: cite the link to the entire config or include it directly
-We've used the Big Buck Bunny video % TODO: reference BBB video
-with a frame rate of 24 frames per second. We use ffmpeg to reencode the video and produce the output stream that the server ingests. We use the \lstinline{-re} to simulate live streaming. The most important output options include:
+We use dummynet\footnote{\url{https://man.freebsd.org/cgi/man.cgi?dummynet}} to emulate a link with limited bandwidth between the origin server and the client. Dummynet is a traffic shaping tool that simulates queue size and bandwidth limitations, delays and packet loss, by intercepting traffic between the transport protocol layers \parencite{rizzoDummynetSimpleApproach1997}. % TODO: I can expand on how it works if i want
+In order to simulate the bandwidth limits we use a dummynet \textit{pipe} and feed traffic from the client to the server and vice versa into the pipe using PF\footnote{\url{https://www.openbsd.org/faq/pf/}} (Packet Filter).
 
+The client and origin server run on the same machine, and communicate through the loopback interface. The origin server listens for incoming QUIC connections on port 443. We use PF rules that filter traffic on the localhost address from port 443 to any port, which corresponds to traffic between the server and the client, and forward it to the dummynet pipe. The dummynet pipe is configured with a bandwidth limit that varies according to the network profile throughout the test run. We don't configure any other options of the dummynet pipe explicitly, so that their default values are used. Some options worth mentioning include the queue size, which is set to 50 slots or packets by default, and the delay which is zero if not configured explicitly.
+
+For the source video stream, we use the the Big Buck Bunny\footnote{\url{https://peach.blender.org/}} video and read the input file at the native frame rate using the ffmpeg option \lstinline{-re} to simulate live streaming. The video frame rate is 24 frames per second. We also reencode the video stream with AVC/H.264 using a custom bitrate and GoP structure, and repackage it in MP4 fragments. We use the following ffmpeg options to achieve this:
 \begin{itemize}
     \item \lstinline{-an}: discard the audio track.
     \item \lstinline{-c:v libx264 -b:v 600k -bufsize 200K}: reencode the video using a target bitrate of 600 Kbit/s and a buffer size of 200 Kbit/s. The libx264 encoder is used.
     \item \lstinline{-g:v 15 -keyint_min:v 15 -sc_threshold:v 0}: set the minimum and maximum GoP size to 15 frames, and disables scene change detection so that each GoP has exactly the same size. 
-    \item \lstinline{-bf 3}: set the maximum number of consecutive B-frames to 3.
+    \item \lstinline{-bf 3}: set the maximum number of consecutive B-frames to 3. Note that the encoder can use a lower number B-frames between two reference frames.
+    % \item \lstinline{-x264-params b-pyramid=none}: disable the use of B-frame as references for other frames to prevent video artifacts. The decoder produces video artifacts when it doesn't have a frame's dependencies as we described in \autoref{section:reference_b_frames}.
     \item \lstinline{-f mp4 -movflags cmaf+frag_every_frame}: use \ac{CMAF} compatible fragmented MP4 as the output format and package each frame in a separate fragment.
 \end{itemize}
-% TODO: The complete config can be found in [cite config].
 
-The jitter buffer and also the reorder buffer, in the deprioritize B-frames approach, have a size of 100 ms.
+In both the deprioritize B-frames, and skip old \acp{GoP} approaches we use a buffer size of 100 ms for the jitter buffer. Furthermore, in the deprioritize B-frames approach, the reorder buffer has a size of 100 ms, leading to a total buffer buffer size of 200 ms. It is also worth mentioning that the server uses the BBR congestion control algorithm.
+
+\section{Metrics}
+We measure the latency of the live stream to evaluate the performance of our streaming protocols in poor network conditions. In a real-world live streaming system, many components in the media streaming pipeline contribute to the end-to-end latency \parencite{bentalebOneSecondLatencyEvolution2023}. In our measurements, we only take into account the latency added by the delivery and consumption phases, since our work focuses on the media distribution phase of the pipeline. We measure latency, as the delay between the frame reaching the server and being rendered in the client.  
+
+% TODO: maybe cite where you got this idea from (dash player or twitch challenge testbed)
+We measure the latency for each frame as follows. The server includes the availability time, the time at which the frame became available in the server, in the header of the MoQ object's payload. In the client, we calculate the latency for a given frame when the frame is rendered as the difference between the availability time and the time at which the frame was rendered. Note that both the server and client use the same clock, since they run on the same machine, and therefore clock drift is not an issue.
+
+We would like to note however, that latency is not a complete metric by itself. Other factors such as rebuffering events, and stream quality are also important in determining the viewer's \ac{QoE}. An interesting area for future work is to use a weighted combination of these factors such as the \ac{QoE} model proposed by \citeauthor{yinControlTheoreticApproachDynamic2015} in \parencite{yinControlTheoreticApproachDynamic2015} to evaluate our approaches.
 
 \section{Measurements}
 We now present our measurements. We first analyse the deprioritize B-frames approach and we present data for two sample runs
