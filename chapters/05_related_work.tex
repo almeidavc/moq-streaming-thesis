@@ -4,25 +4,8 @@
 \chapter{Related work}\label{chapter:related_work}
 
 % TODO: Add part about cancelling streams. Both Warp and RUSH state that streams should be cancelled (in different ways)
-Some QUIC-based media streaming protocols have been developed prior to \ac{MoQ}. Warp \parencite{curleyWarpSegmentedLive2022}, developed by Twitch, was the first to propose mapping each video segment to a separate QUIC stream, and prioritizing newer streams over older ones for live streaming. RUSH \parencite{puginRUSHReliableUnreliable2021}, developed by Facebook, another media streaming protocol using QUIC was designed primarily for media ingestion. In additional to the standard configuration, in which a single stream is used to stream the media content, RUSH proposed a \textit{Multi Stream Mode} that maps each audio/video frame to a separate stream. The client then reassembles the frames in the right order. The RUSH draft does not make any mention of stream prioritization. % TODO: Explain that the drafts were merged into MoQ, which doesn't indicate any mapping/priority. To make a transition to the next paragraph
+Some QUIC-based media streaming protocols have been developed prior to \ac{MoQ}. Warp \parencite{curleyWarpSegmentedLive2022}, developed by Twitch, was the first to propose mapping each video segment to a separate QUIC stream, and prioritizing newer streams over older ones for live streaming. RUSH \parencite{puginRUSHReliableUnreliable2021}, developed by Facebook, another media streaming protocol using QUIC was designed primarily for media ingestion. In addition to the standard configuration, in which a single stream is used to stream the media content, RUSH proposed a \textit{Multi Stream Mode} that maps each audio/video frame to a separate stream. The client then reassembles the frames in the right order. The RUSH draft does not make any mention of stream prioritization. % TODO: Explain that the drafts were merged into MoQ, which doesn't indicate any mapping/priority. To make a transition to the next paragraph
 
-In \parencite{gurelMediaQUICInitial2023}, \citeauthor{gurelMediaQUICInitial2023} tested a Warp-based MoQ prototype and compared server- to client-side approaches to rate adaptation and bandwidth measurements. Later on, \citeauthor{gurelThisWayPrioritization2024} showed that stream prioritization could lead to increased performance \parencite{gurelIBC2023TechPapers, gurelThisWayPrioritization2024}. In this work, a separate stream is used for each frame type. The stream that is used for I-frames has the highest priority, while the stream used to transmit the B-frames has the lowest priority. They showed that their prioritization scheme consistently achieves higher \ac{OTDR}s than sending frames based on the encoding order. \parencite{gurelMediaoverQUICTransportVs2024} proposes a testbed to compare the performance of LL-DASH and a MoQ implementation. The MoQ configuration used consists in a stream per GoP, and prioritizes newer GoPs over older GoPs.
+In \parencite{gurelMediaQUICInitial2023}, \citeauthor{gurelMediaQUICInitial2023} tested a Warp-based MoQ prototype and compared server- to client-side approaches to rate adaptation and bandwidth measurements. Later on, \citeauthor{gurelThisWayPrioritization2024} showed that stream prioritization could lead to increased performance \parencite{gurelIBC2023TechPapers, gurelThisWayPrioritization2024}. In this work, a separate stream is used for each frame type. The stream that is used for I-frames has the highest priority, while the stream used to transmit the B-frames has the lowest priority. They showed that their prioritization scheme consistently achieves higher \ac{OTDR}s than sending frames based on the encoding order. \parencite{gurelMediaoverQUICTransportVs2024} proposes a testbed to compare the performance of LL-DASH and a MoQ implementation. The MoQ configuration used consists in a stream per GoP and prioritizes newer GoPs over older GoPs.
 
-Other MoQ implementations include moq-rs \parencite{kixelatedKixelatedMoqrs2024}, a Rust implementation of \ac{MOQT}, origin server, relay, and other components, and moq-js \parencite{kixelatedKixelatedMoqjs2024} the corresponding client-side implementation, written in Javascript. This implementation is based on the Warp streaming protocol, with moq-pub mapping each GoP to a stream and prioritizing new over old GoPs. Another implementation developed by Meta to experiment with MoQ be found in \parencite{FacebookexperimentalMoqencoderplayer2024}.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Other MoQ implementations include moq-rs \parencite{kixelatedKixelatedMoqrs2024}, a Rust implementation of \ac{MOQT}, origin server, relay, and other components, and moq-js \parencite{kixelatedKixelatedMoqjs2024} the corresponding client-side implementation, written in Javascript. This implementation is based on the Warp streaming protocol, with moq-pub mapping each GoP to a stream and prioritizing new over old GoPs. Another implementation developed by Meta to experiment with MoQ can be found in \parencite{FacebookexperimentalMoqencoderplayer2024}.

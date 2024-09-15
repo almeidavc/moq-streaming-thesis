@@ -1,0 +1,56 @@
+\pgfplotsset{
+    every legend to name picture/.style={
+        legend style={
+        draw=none,
+        fill=none,
+        legend columns=-1,
+        % /tikz/every even column/.append style={column sep=0.2cm},
+        % font=\tiny,
+        at={(0.5,1.02)},
+    },
+    legend cell align={left},
+    },
+}
+
+\begin{tikzpicture}
+    \begin{axis}[
+    width=0.45\textwidth,
+    area style,
+    axis lines=left,
+    ylabel=Bitrate received (Kbit/s),
+    title=Baseline,
+    legend columns=-1,
+    legend to name=named,
+    scaled ticks=false,
+    ymin=0, ymax=800, ytick distance=200, ytickmin=200,
+    xtick distance=0.5, minor x tick num=1,
+    x filter/.code={\pgfmathparse{#1/60}}, % Convert seconds to minutes
+    xticklabel={ % Split into hours and minutes
+        \pgfmathsetmacro\hours{floor(\tick)}%
+        \pgfmathsetmacro\minutes{(\tick-\hours)*0.6}%
+        % Use some trickery to get leading zeros
+        \pgfmathprintnumber{\hours}:\pgfmathprintnumber[fixed, fixed zerofill, skip 0.=true, dec sep={}]{\minutes}%
+    },
+    % legend style={
+    %     draw=none,
+    %     fill=none,
+    %     legend columns=-1,
+    %     % /tikz/every even column/.append style={column sep=0.2cm},
+    %     % font=\tiny,
+    %     at={(0.5,1.02)},
+    % },
+    % legend cell align={left},
+    ]
+        \addplot+[fill=blue!20, draw=blue!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/total_bitrate.dat} \closedcycle;
+        \addplot+[fill=green!20, draw=green!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/I_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=orange!20, draw=orange!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/P_frames_bitrate.dat} \closedcycle;
+        \addplot+[fill=purple!20, draw=purple!40] table[meta=bitrateReceivedKbit] {data/sample_runs_gop15/500Kbit/baseline/B_frames_bitrate.dat} \closedcycle;
+        \addplot[ultra thick, red, no marks] coordinates {
+        (0, 9999)
+        (0, 500)
+        (120, 500)
+        (120, 9999)
+        };
+        \legend{Total, I-frames, P-frames, B-frames}
+    \end{axis}
+\end{tikzpicture}

@@ -1,3 +1,14 @@
+\pgfplotsset{
+    legend style={
+        draw=none,
+        fill=none,
+        legend columns=-1,
+        /tikz/every even column/.append style={column sep=0.2cm},
+        at={(0.5,1.02)},
+    },
+    legend cell align={left},
+}
+
 \centering
 \begin{tikzpicture}
     \begin{axis}[
@@ -63,5 +74,4 @@
     \end{axis}
 \end{tikzpicture}
 
-\bigskip
 \ref{named}

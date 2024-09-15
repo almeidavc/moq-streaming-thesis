@@ -1,5 +1,6 @@
 \begin{tikzpicture}
     \begin{axis}[
+        width=\textwidth,
         axis lines=left,
         ylabel=Latency (ms),
         legend style={
@@ -26,7 +27,7 @@
         \addplot+[color=brown] table[meta=latencyMs] {data/sample_runs_gop15/intra_cascade/gops/latency_per_sec_all_samples.dat};
         \addplot+[color=red, only marks, mark size=1pt] table[meta=latencyMs] {data/sample_runs_gop15/intra_cascade/gops/latency_per_sec_I_frames.dat};
 
-        \legend{All frames, I-frames}
+        % \legend{All frames, I-frames}
         
     \end{axis}
     \end{tikzpicture}
